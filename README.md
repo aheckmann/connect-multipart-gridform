@@ -29,11 +29,11 @@ _For the curious, the options are first passed into a [gridform](https://github.
 
 ## why?
 
-Connects multipart middleware uses [formidable](https://github.com/felixge/node-formidable) to process file uploads. `formidable` streams the files to disk. Now you can stream directly into GridFS.
+Connect multipart middleware uses [formidable](https://github.com/felixge/node-formidable) to process file uploads. `formidable` streams the files to disk. Now you can stream directly into GridFS.
 
 ## tests
 
 Run the tests with `make test`.
 
-[LICENCE](https://github.com/aheckmann/connect-multipart-gridform/blob/master/LICENSE)
+[LICENSE](https://github.com/aheckmann/connect-multipart-gridform/blob/master/LICENSE)
 
