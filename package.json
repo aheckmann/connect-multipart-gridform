@@ -1,0 +1,20 @@
+{
+  "author": "Aaron Heckmann <aaron.heckmann+github@gmail.com>",
+  "name": "connect-multipart-gridform",
+  "description": "MongoDB GridFS backed multipart middleware",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+      "connect": "2.2.2"
+    , "gridform": "0.0.1"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
