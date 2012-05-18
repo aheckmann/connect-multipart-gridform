@@ -37,7 +37,7 @@ Run the tests with `make test`.
 
 ## version
 
-Currently only works with Express 3 and Node 6.x.
+Currently only works with Express 3.
 
 [LICENSE](https://github.com/aheckmann/connect-multipart-gridform/blob/master/LICENSE)
 
