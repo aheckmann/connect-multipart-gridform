@@ -27,7 +27,7 @@ describe('multipart', function(){
 
   it('should return connect multipart middlware', function(){
     var a = connect.multipart();
-    var b = multipart({ db: db });
+    var b = multipart({ db: db, mongo: mongo });
     assert.equal(a.toString(), b.toString())
   })
 
@@ -38,8 +38,13 @@ describe('multipart', function(){
       }, /missing db/);
 
       assert.doesNotThrow(function () {
-        multipart({db:1});
+        multipart({db:1, mongo: mongo});
       });
+    });
+    it('should expect the driver', function(){
+      assert.throws(function () {
+        multipart({ db: 1 });
+      }, /driver/);
     });
 
     describe('file uploads', function(){
@@ -52,7 +57,7 @@ describe('multipart', function(){
       // start a server
       before(function(done){
         app = connect();
-        app.use('/test', multipart({ db: db }));
+        app.use('/test', multipart({ db: db, mongo: mongo }));
         app.use('/test', fn);
 
         var server = http.Server(app);
@@ -96,7 +101,7 @@ describe('multipart', function(){
         })
 
         it('should support files', function(done) {
-          app.use('/files', multipart({ db: db }));
+          app.use('/files', multipart({ db: db, mongo: mongo }));
           app.use('/files', function (req, res, next) {
             assert.deepEqual(req.body.user, { name: 'Tobi' });
             assert.equal(req.files.text.constructor.name, 'File');
@@ -122,7 +127,7 @@ describe('multipart', function(){
         })
 
         it('should expose options to formidable', function(done) {
-          app.use('/options', multipart({ db: db, maxFieldsSize: 1 }));
+          app.use('/options', multipart({ db: db, mongo: mongo, maxFieldsSize: 1 }));
           app.use('/options', function (err, req, res, next) {
             assert(err)
             assert(/^maxFieldsSize exceeded/.test(err.message))
@@ -200,7 +205,7 @@ describe('multipart', function(){
         })
 
         it('should support multiple files of the same name', function(done) {
-          app.use('/multiplefiles', multipart({ db: db }));
+          app.use('/multiplefiles', multipart({ db: db, mongo: mongo }));
           app.use('/multiplefiles', function (req, res) {
             assert.equal(2, req.files.text.length);
             assert.equal(req.files.text[0].constructor.name,'File');
@@ -227,7 +232,7 @@ describe('multipart', function(){
         })
 
         it('should support nested files', function(done) {
-          app.use('/nestedfiles', multipart({ db: db }));
+          app.use('/nestedfiles', multipart({ db: db, mongo: mongo }));
           app.use('/nestedfiles', function (req, res) {
             assert.equal(Object.keys(req.files.docs).length, 2);
             assert.equal(req.files.docs.foo.name, 'foo.txt');
@@ -264,7 +269,7 @@ describe('multipart', function(){
             res.end();
           }
 
-          app.use('/multiparterror', multipart({db: db}));
+          app.use('/multiparterror', multipart({db: db, mongo: mongo}));
           app.use('/multiparterror', whoop);
           app.use('/multiparterror', handleError);
 
