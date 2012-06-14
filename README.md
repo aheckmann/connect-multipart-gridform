@@ -21,6 +21,7 @@ app.use(multipart(options));
 Options work the same way as in the connect [multipart]() middleware, with these additions:
 
   - db: (required) an open [node-mongodb-native](https://github.com/mongodb/node-mongodb-native) db instance
+  - mongo: (required) the [node-mongodb-native](https://github.com/mongodb/node-mongodb-native) driver you created the db with
   - filename: (optional) function
 
 The optional `filename` function is passed the `file.name` before streaming to MongoDB providing an opportunity to customize the filename with a prefix etc.
