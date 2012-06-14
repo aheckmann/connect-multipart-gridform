@@ -1,3 +1,8 @@
+0.1.0 / 06-13-2012
+==================
+
+  * updated; dependencies for (#3) -- the driver is now required
+
 0.0.2 / 05-18-2012
 ==================
 

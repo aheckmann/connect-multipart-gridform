@@ -2,7 +2,7 @@
   "author": "Aaron Heckmann <aaron.heckmann+github@gmail.com>",
   "name": "connect-multipart-gridform",
   "description": "MongoDB GridFS backed multipart middleware",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "scripts": {
     "test": "make test"
   },
