@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Connect-multipart-gridform : Connect multipart middleware configured to use MongoDB GridFS for file storage." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Connect-multipart-gridform</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/aheckmann/connect-multipart-gridform">View on GitHub</a>
+
+          <h1 id="project_title">Connect-multipart-gridform</h1>
+          <h2 id="project_tagline">Connect multipart middleware configured to use MongoDB GridFS for file storage.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/aheckmann/connect-multipart-gridform/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/aheckmann/connect-multipart-gridform/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>Connect multipart middleware configured to use MongoDB GridFS for file storage.</p>
+
+<h2>install</h2>
+
+<pre><code>npm install connect-multipart-gridform
+</code></pre>
+
+<h2>use</h2>
+
+<div class="highlight">
+<pre><span class="kd">var</span> <span class="nx">multipart</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'connect-multipart-gridform'</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">multipart</span><span class="p">(</span><span class="nx">options</span><span class="p">));</span>
+</pre>
+</div>
+
+
+<h2>options</h2>
+
+<p>Options work the same way as in the connect <a href="">multipart</a> middleware, with these additions:</p>
+
+<ul>
+<li>db: (required) an open <a href="https://github.com/mongodb/node-mongodb-native">node-mongodb-native</a> db instance</li>
+<li>mongo: (required) the <a href="https://github.com/mongodb/node-mongodb-native">node-mongodb-native</a> driver you created the db with</li>
+<li>filename: (optional) function</li>
+</ul><p>The optional <code>filename</code> function is passed the <code>file.name</code> before streaming to MongoDB providing an opportunity to customize the filename with a prefix etc.</p>
+
+<p><em>For the curious, the options are first passed into a <a href="https://github.com/aheckmann/gridform">gridform</a> before passing on to connects multiple middleware.</em></p>
+
+<h2>why?</h2>
+
+<p>Connect multipart middleware uses <a href="https://github.com/felixge/node-formidable">formidable</a> to process file uploads. <code>formidable</code> streams the files to disk. Now you can stream directly into GridFS.</p>
+
+<h2>tests</h2>
+
+<p>Run the tests with <code>make test</code>.</p>
+
+<h2>version</h2>
+
+<p>Currently only works with Express 3.</p>
+
+<p><a href="https://github.com/aheckmann/connect-multipart-gridform/blob/master/LICENSE">LICENSE</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Connect-multipart-gridform maintained by <a href="https://github.com/aheckmann">aheckmann</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-31712388-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
