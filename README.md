@@ -18,7 +18,7 @@ app.use(multipart(options));
 
 ## options
 
-Options work the same way as in the connect [multipart]() middleware, with these additions:
+Options work the same way as in the connect [multipart](http://www.senchalabs.org/connect/multipart.html) middleware, with these additions:
 
   - db: (required) an open [node-mongodb-native](https://github.com/mongodb/node-mongodb-native) db instance
   - mongo: (required) the [node-mongodb-native](https://github.com/mongodb/node-mongodb-native) driver you created the db with
