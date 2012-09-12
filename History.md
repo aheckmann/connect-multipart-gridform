@@ -1,4 +1,10 @@
 
+0.1.2 / 2012-09-12
+==================
+
+  * bump gridform to 0.1.3
+  * added URL for connect-multipart to README [drosen0](https://github.com/drosen0)
+
 0.1.1 / 2012-08-31
 ==================
 
