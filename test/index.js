@@ -23,6 +23,15 @@ describe('multipart', function(){
     it('should be a function', function(){
       assert.equal('function', typeof multipart);
     })
+
+    it('include gridform', function(){
+      assert.ok('function', typeof multipart.multipart)
+    })
+
+    it('include connect-multipart', function(){
+      assert.ok('function', typeof multipart.gridform)
+    })
+
   })
 
   it('should return connect multipart middlware', function(){
