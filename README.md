@@ -1,7 +1,7 @@
 #connect-multipart-gridform
 ============================
 
-Connect multipart middleware configured to use MongoDB GridFS for file storage.
+[Connect](https://github.com/senchalabs/connect) compatible multipart middleware configured to stream uploads directly to MongoDB GridFS.
 
 ## install
 
@@ -31,6 +31,14 @@ _For the curious, the options are first passed into a [gridform](https://github.
 ## why?
 
 Connect multipart middleware uses [formidable](https://github.com/felixge/node-formidable) to process file uploads. `formidable` streams the files to disk. Now you can stream directly into GridFS.
+
+## dependencies
+
+`connect-multipart-gridform` utilizes both the [gridform](https://github.com/aheckmann/gridform) and [connect multipart](http://www.senchalabs.org/connect/multipart.html) modules which are directly exposed as:
+
+    var multipart = require('connect-multipart-gridform');
+    var gridform = multipart.gridform;
+    var connectMultipart = multipart.multipart;
 
 ## tests
 
