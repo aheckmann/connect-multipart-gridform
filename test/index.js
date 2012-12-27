@@ -15,7 +15,7 @@ describe('multipart', function(){
 
   before(function(done){
     var server = new mongo.Server('localhost', 27017);
-    db = new mongo.Db('test_connect_multipart_gridform', server);
+    db = new mongo.Db('test_connect_multipart_gridform', server, {w:1});
     db.open(done);
   });
 
