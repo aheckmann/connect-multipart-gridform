@@ -299,6 +299,40 @@ describe('multipart', function(){
           });
         })
 
+        it('should support "fileBegin" event', function(done) {
+          var metadata = {
+            test : true
+          };
+          app.use('/fileBegin', multipart({ db: db, mongo: mongo, defer: true }));
+          app.use('/fileBegin', function (req, res, next) {
+            assert.ok('object', typeof req.form);
+            req.form.on('fileBegin', function(name, file){
+              file.metadata = metadata;
+            });
+            req.form.on('end', function(){
+              res.end(JSON.stringify(req.files.text.metadata));
+            });
+
+          });
+
+          request()
+          .post('/fileBegin')
+          .header('Content-Type', 'multipart/form-data; boundary=foo')
+          .write('--foo\r\n')
+          .write('Content-Disposition: form-data; name="user[name]"\r\n')
+          .write('\r\n')
+          .write('Tobi')
+          .write('\r\n--foo\r\n')
+          .write('Content-Disposition: form-data; name="text"; filename="foo.txt"\r\n')
+          .write('\r\n')
+          .write('some text here')
+          .write('\r\n--foo--')
+          .end(function(res) {
+            assert.equal(JSON.parse(res.body).test,metadata.test);
+            done();
+          });
+        });
+
         it('should default req.files to {}', function(done) {
           request()
           .post('/test')
