@@ -1,0 +1,26 @@
+doctype 5
+html
+  head
+    title Connect-multipart-gridform
+  body
+    form(action='/', method='POST',enctype='multipart/form-data')
+      input(name='file', type='file', multiple='multiple')
+      input(type='submit')
+    table
+      thead
+        tr
+          th Filename
+          th ContentType
+          th Size
+          th UploadDate
+          th Actions
+      tbody
+        for file in files
+          tr
+            td= file.filename
+            td= file.contentType
+            td= file.length
+            td= file.uploadDate.toLocaleString()
+            td
+              a(href='/download/' + file._id, title='Download') D
+              a(href='/remove/' + file._id, title='Remove') R

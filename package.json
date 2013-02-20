@@ -12,7 +12,9 @@
   },
   "devDependencies": {
     "mocha": "*",
-    "mongodb": "*"
+    "mongodb": "*",
+    "express": "*",
+    "jade": "*"
   },
   "optionalDependencies": {},
   "engines": {
