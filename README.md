@@ -44,9 +44,13 @@ Connect multipart middleware uses [formidable](https://github.com/felixge/node-f
 
 Run the tests with `make test`.
 
-## version
+## express
 
 Currently only works with Express 3.
+
+## example
+
+[https://github.com/aheckmann/connect-multipart-gridform/tree/master/examples](https://github.com/aheckmann/connect-multipart-gridform/tree/master/examples)
 
 [LICENSE](https://github.com/aheckmann/connect-multipart-gridform/blob/master/LICENSE)
 
