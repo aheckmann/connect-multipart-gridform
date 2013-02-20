@@ -1,4 +1,11 @@
 
+0.1.4 / 2013-02-11
+==================
+
+  * added; support for fileBegin event
+  * update; dependencies
+  * tests; safe writes
+
 0.1.3 / 2012-09-17
 ==================
 
