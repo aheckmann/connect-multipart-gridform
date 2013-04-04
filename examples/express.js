@@ -23,6 +23,9 @@ function createApp (db) {
     }));
     app.use(app.router);
   });
+  
+  // You may want to read this post which details some common express / multipart gotchas:
+  // http://stackoverflow.com/questions/11295554/how-to-disable-express-bodyparser-for-file-uploads-node-js
 
   var router = require('./router')(db);
 
